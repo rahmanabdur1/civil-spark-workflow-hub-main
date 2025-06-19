@@ -1,0 +1,19 @@
+<div class="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
+  <app-header [sidebarOpen]="sidebarOpen" (toggleSidebar)="toggleSidebar()"></app-header>
+  
+  <div class="flex h-[calc(100vh-4rem)]">
+    <div 
+      *ngIf="sidebarOpen"
+      [@sidebarAnimation]="sidebarOpen ? 'open' : 'closed'"
+      class="w-64 flex-shrink-0"
+    >
+      <app-sidebar></app-sidebar>
+    </div>
+
+    <main class="flex-1 overflow-auto p-6">
+      <div [@contentAnimation]>
+        <router-outlet></router-outlet>
+      </div>
+    </main>
+  </div>
+</div> 
